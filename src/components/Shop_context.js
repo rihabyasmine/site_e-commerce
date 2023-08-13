@@ -1,7 +1,9 @@
 import React from 'react'
 import { useState } from 'react';
 import { createContext } from 'react'
-import data from './Bottinesprix'
+import data from './Détailsbottines'
+import data1 from './Détailsgodasses'
+import data2 from './Détailsbottes'
 export const Shopcontext =createContext (null);
 const getdefaultpanier = ()=> {
     let panier = {}
@@ -12,32 +14,57 @@ panier [i] = 0
 }
 const Shop_context = (props) => {
     const [Panier,setpanier] =useState(getdefaultpanier())
+    const [Panier1,setpanier1] =useState(getdefaultpanier())
+    const [Panier2,setpanier2] =useState(getdefaultpanier())
     const gettotalprix =() => {
         let total =0
+        let total1 =0
+        let total2 =0
+        let total3 =0
         for (const item in Panier) {
             if(Panier[item]>0){
                 let iteminfo = data.find((produit)=> produit.id=== Number(item))
-                total+= Panier[item]*iteminfo.prix
+                total1+= Panier[item]*iteminfo.prix
             }
         }
+        for (const item in Panier1) {
+            if(Panier1[item]>0){
+                let iteminfo = data1.find((produit)=> produit.id=== Number(item))
+                total2+= Panier1[item]*iteminfo.prix
+            }}
+            for (const item in Panier2) {
+                if(Panier2[item]>0){
+                    let iteminfo = data2.find((produit)=> produit.id=== Number(item))
+                    total3+= Panier2[item]*iteminfo.prix
+                }
+        }
+        total=total1+total2+total3
         return total
     }
-    const ajouter_au_panier = (id)=> {
+    const ajouter_au_panier = (id,name)=> {
        
-        setpanier((prev) => ({...prev , [id]:prev[id] + 1 }))
+       if (name==="bottine"){setpanier((prev) => ({...prev , [id]:prev[id] + 1 }))} 
+       else if (name==="godasse"){setpanier1((prev) => ({...prev , [id]:prev[id] + 1 }))}
+       else if (name==="botte"){setpanier2((prev) => ({...prev , [id]:prev[id] + 1 }))}
         
     }
-    console.log(Panier)
-    const supp_du_panier = (id)=> {
-        setpanier((prev) => ({...prev , [id]:prev[id] - 1 }))
+ 
+   
+    const supp_du_panier = (id,name)=> {
+        
+          
+       if (name==="bottine"){setpanier((prev) => ({...prev , [id]:prev[id] - 1 }))} 
+       else if (name==="godasse"){setpanier1((prev) => ({...prev , [id]:prev[id] - 1 }))}
+       else if (name==="botte"){setpanier2((prev) => ({...prev , [id]:prev[id]  - 1 }))}
         
     }
-    const updatepanier = (nvpanier ,itemid) => {
-        setpanier ((prev) =>( {
-            ...prev , [itemid] : nvpanier
-        }))
+    const updatepanier = (nvpanier ,itemid,name) => {
+   
+        if (name==="bottine"){setpanier((prev) => ({...prev , [itemid] : nvpanier }))} 
+        else if (name==="godasse"){setpanier1((prev) => ({...prev , [itemid] : nvpanier}))}
+        else if (name==="botte"){setpanier2((prev) => ({...prev , [itemid] : nvpanier}))}
     }
-    const contextvalue = {Panier ,ajouter_au_panier ,supp_du_panier,updatepanier,gettotalprix }
+    const contextvalue = {Panier ,Panier1,Panier2,ajouter_au_panier ,supp_du_panier,updatepanier,gettotalprix }
     return (
         <Shopcontext.Provider value={contextvalue}>
 {props.children}

@@ -3,24 +3,22 @@ import {FaRegCheckSquare,FaShoppingCart,FaRegUser,FaUnlockAlt} from "react-icons
 import { AiOutlineUser } from "react-icons/ai"
 import { BsCart,BsSearch } from "react-icons/bs";
 import {Link} from "react-router-dom"
+import Chercher from './Chercher'
 /*${open ? 'active' : 'inactive'}
  */ 
 const Navbar = () => {
-const [show, setshow]= useState (false)
-const [show1, setshow1]= useState (false)
-const [open ,setopen] = useState (false)
-const Show = ()=> show ? setshow(false) : setshow(true)
+const [input ,setinput] = useState('')
 
-  console.log('show1' + show1)
-    return (
+ return (
   <div className='container-nav'>
     
-      <h1><Link to="/" className='title'>ANSO</Link> </h1> 
-      <form action="" className='search-bar'>
-          <input type="search" placeholder='Que cherchez-vous?' /> 
-          <button type='submit'><BsSearch className='search'  /> </button> 
-      </form>
-      <div className='shoes'>
+     <div>  <h1><Link to="/" className='title'>ANSO</Link></h1> </div>   
+     <div className='search-bar'>
+      <input type="search" placeholder='Que cherchez-vous?' onChange={e => setinput(e.target.value)} /> 
+      <Link to="/Chercher" state={input}><BsSearch className='search'  /></Link>    
+     </div>
+    
+      <div className='modele'>
             <ul>
             <li><Link to="/data" state="1"   className='link1'>BOTTINES</Link></li>
             <li><Link to="/data"  state="2" className='link1'>GODASSES</Link></li>   
@@ -28,12 +26,10 @@ const Show = ()=> show ? setshow(false) : setshow(true)
           </ul>
       </div>
       <div className='shop-user'> 
-      
          <div >
-        <Link to="/Panier"><button className='shopping-cart'><BsCart  className='fa'/>
-          <div className='circle'>3</div>
-          </button></Link>  
-         
+        <Link to="/Panier">
+          <BsCart  className='fa'/>
+          </Link>  
          </div>
            <div className='menu-container'>
             <AiOutlineUser className='fa'/> 
@@ -53,7 +49,7 @@ const Show = ()=> show ? setshow(false) : setshow(true)
     </li>
      <li className='dropdownitem'>
     <FaShoppingCart className='icon'/> 
-    <Link className='link2'>PANIER </Link>
+    <Link  to='/Panier' className='link2'>PANIER </Link>
     </li>
     </ul>
   

@@ -1,8 +1,10 @@
 import React from "react"
 import { useState,useEffect } from "react"
 import "../index.css"
-import data from './Bottinesprix'
-
+import databottines from './Détailsbottines'
+import datagodasses from './Détailsgodasses'
+import databottes from './Détailsbottes'
+import data from './Détailsbottines'
 import Bottines from './Bottines'
 import Godasses from "./Godasses"
 import Bottes from "./Bottes"
@@ -59,16 +61,16 @@ const Data_b_g_b = () => {
                   console.error(`An error occurred: ${e}`)
                 });
             },[]);
-        let i=0;
+      
         
     
             return (
         <div >
           <div className="dispo">
             
-          { dt ==="1" && data.map((bottine) => (
+          { dt ==="1" && databottines.map((bottine) => (
    
-   <Bottines img_bottine={bottine.img} prix={bottine.prix} id={bottine.id} />
+   <Bottines img_bottine={bottine.img} prix={bottine.prix} id={bottine.id} name={bottine.name} />
   
 )) }
           </div>
@@ -76,17 +78,17 @@ const Data_b_g_b = () => {
       
         
           <div className="dispo">
-          { dt==="2" && godasses.map((godasse) => (
+          { dt==="2" && datagodasses.map((godasse) => (
    
-   <Godasses img_godasse={godasse.urls.small} prix={data[0].prix} />
+   <Godasses img_godasse={godasse.img} prix={godasse.prix} id={godasse.id} name={godasse.name}/>
 )) }  
           </div>
         
  <div className="dispo"> 
- {dt==="3" && bottes.map((botte) => (
+ {dt==="3" && databottes.map((botte) => (
 
    
-<Bottes img_botte={botte.urls.small} prix={data[0].prix} />
+<Bottes img_botte={botte.img} prix={botte.prix} id={botte.id} name={botte.name} />
 )) } 
 </div>         
 

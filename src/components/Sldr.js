@@ -1,4 +1,4 @@
-import React from 'react'
+import React , { useContext } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react'
 import 'swiper/swiper.min.css'
 import 'swiper/modules/pagination/pagination.min.css'
@@ -13,29 +13,19 @@ import image3_slide from 'C:/Users/User/Documents/React_Project/site_e-commerce/
 import image4_slide from 'C:/Users/User/Documents/React_Project/site_e-commerce/src/Images2/couv6.jpg'
 import image5_slide from 'C:/Users/User/Documents/React_Project/site_e-commerce/src/Images2/couv7.jpg'
 import image6_slide from 'C:/Users/User/Documents/React_Project/site_e-commerce/src/Images2/couv8.jpg'
-/*
-navigation={{
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-        clickable: true,
-      }}
-      pagination={{ clickable: true }}
-      modules={[EffectCoverflow, Pagination, Navigation]}
+import data from './Détailsbottines'
+import data1 from './Détailsgodasses'
+import data2 from './Détailsbottes'
 
-coverflowEffect={
-          {
-            rotate: 0,
-            stretch: 0,
-            depth: 
-            
-            0,
-            modifier: 0,
-            slideShadows : true}
-          }
-       
-*/ 
+import {Shopcontext} from './Shop_context'
+import Format from './Formatcurrency'
+
 
 export default function Sldr (){
+  const {ajouter_au_panier} =useContext(Shopcontext)
+  const bottine ="bottine"
+const godasse ="godasse"
+const botte = "botte"
   
     return (
         <div className="container-slider">
@@ -69,16 +59,21 @@ export default function Sldr (){
         
       }}
     >
-  <SwiperSlide className='swiper-slider'>  <img src={image1_slide} alt=""/><div className='nouv-acheter'>
-  <h3>5000 DA</h3> 
-  <button>Acheter</button>
+  <SwiperSlide className='swiper-slider'>  <img src={data[0].img} alt=""/><div className='nouv-acheter'>
+  <h3>{Format(data[0].prix)}</h3> 
+  <button onClick={()=>ajouter_au_panier(data[0].id,bottine) }>Acheter</button>
   </div>  
   </SwiperSlide>
-  <SwiperSlide className='swiper-slider'>  <img src={image1_slide} alt=""/> <div className='nouv-acheter'><h3>5000 DA</h3> <button>Acheter</button></div></SwiperSlide>
-  <SwiperSlide className='swiper-slider'>  <img src={image1_slide} alt=""/> <div className='nouv-acheter'><h3>5000 DA</h3> <button>Acheter</button></div> </SwiperSlide>
- <SwiperSlide className='swiper-slider'>  <img src={image1_slide} alt=""/> <div className='nouv-acheter'><h3>5000 DA</h3> <button>Acheter</button></div> </SwiperSlide>
- <SwiperSlide className='swiper-slider'>  <img src={image1_slide} alt=""/> <div className='nouv-acheter'><h3>5000 DA</h3> <button>Acheter</button></div> </SwiperSlide>
- <SwiperSlide className='swiper-slider'>  <img src={image1_slide} alt=""/><div className='nouv-acheter'><h3>5000 DA</h3> <button>Acheter</button></div> </SwiperSlide>
+  <SwiperSlide className='swiper-slider'>  <img src={data[1].img}  alt=""/> <div className='nouv-acheter'><h3>{Format(data[1].prix)}</h3> 
+  <button onClick={()=>ajouter_au_panier(data[1].id,bottine) }>Acheter</button></div></SwiperSlide>
+  <SwiperSlide className='swiper-slider'>  <img src={data1[0].img}  alt=""/> <div className='nouv-acheter'><h3>{Format(data1[0].prix)}</h3> 
+  <button onClick={()=>ajouter_au_panier(data1[0].id,godasse) }>Acheter</button></div> </SwiperSlide>
+ <SwiperSlide className='swiper-slider'>  <img src={data1[1].img}  alt=""/> <div className='nouv-acheter'><h3>{Format(data1[1].prix)}</h3> 
+ <button onClick={()=>ajouter_au_panier(data1[1].id,godasse) }>Acheter</button></div> </SwiperSlide>
+ <SwiperSlide className='swiper-slider'>  <img src={data2[0].img}  alt=""/> <div className='nouv-acheter'><h3>{Format(data2[0].prix)}</h3> 
+ <button onClick={()=>ajouter_au_panier(data2[0].id,botte) }>Acheter</button></div> </SwiperSlide>
+ <SwiperSlide className='swiper-slider'>  <img src={data2[1].img} alt=""/><div className='nouv-acheter'><h3>{Format(data2[1].prix)}</h3> 
+ <button onClick={()=>ajouter_au_panier(data2[1].id,botte) }>Acheter</button></div> </SwiperSlide>
 
             
     </Swiper>

@@ -5,11 +5,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 .container {
+  height:100%;
+  width:100%;
   box-sizing: border-box;
   font-family: "Noto";
   font-size: 20px;
   padding-top: 100px;
-  padding-left :20px ;
   background-color: beige;
 
 }
@@ -18,13 +19,14 @@ body {
 position: fixed;
 top:0;
 width:100vw;
-display:flex;
+display: grid;
+grid-template-columns: auto auto auto auto;
 align-items: center;
-lighting-color: white;
+justify-content: center;
  }
 .container-nav .title {
   margin-left:20px;
-  margin-right : 100px; 
+  padding-right : 100px; 
   font-size:40px ;
   text-decoration: none;
   color : #008000;
@@ -37,30 +39,23 @@ lighting-color: white;
   border-style: none;
   outline: none;
 }
-.search-bar button {
-  
-  background-color: beige;
-  border-radius: 50%;
-  border-style: none;
-  cursor: pointer;
-  justify-content: center;
-  align-items: center;
-}
-
-.search {
+.search-bar .search {
   color: #008000;
-  margin-right:20px
-}
-.shoes ul {
+  margin-right:20px;
+  }
+  .modele{
+    margin-right: 30px;
+  }
+.modele ul {
   display : flex ;
   list-style: none;
 }
-.shoes li .link1 {
+.modele li .link1 {
   color : #008000;
   text-decoration: none;
   padding-right: 20px;
    }
-.shoes .link1:hover{
+.modele .link1:hover{
   color:	#CD853F;
   
 }
@@ -71,20 +66,11 @@ color: #008000;
 .shop-user > div {
   padding-right: 20px;
 }
-.shopping-cart{
- position: relative;
-  display: flex;
-  border-style: none;
-  background-color: beige;
-  color:#008000;
-  margin-top:5px;
+.shop-user .fa {
+  color: #008000;
+}
 
-}
-.shopping-cart .fa{
-}
-.circle {
-  transform: translate (25% ,-25% ) ;
- }
+
 
 
 
@@ -123,6 +109,7 @@ color: #008000;
   background-color: #CD853F;
   color :white;
   border-style:none ;
+  border-radius: 20px;
 }
 .my-custom-pagination-div{
   width: 20rem !important;
@@ -395,6 +382,7 @@ text-align: center;
 .connexion input {
   border-radius: 20px;
   border: 1px solid #CD853F;
+  outline: none;
 }
 .connexion label {
   color:#CD853F;
@@ -448,6 +436,59 @@ text-align: center;
   color: #CD853F;
 }
 
+
+
+
+
+
+/******************************Panier************************************/
+.panier {
+  text-align: center;
+  color:#008000;
+}
+.container_element_panier{
+  display:flex;
+  justify-content: space-between;
+  margin:20px ;
+  
+}
+.container_element_panier img {
+  height:80px;
+  width: 80px;
+}
+.container_element_panier input {
+  width: 40px;
+  border-color:#CD853F;
+  border-radius: 20px;
+
+}
+.container_element_panier button {
+  background-color:#CD853F;
+  border-radius: 20px;
+  color:white;
+  border-style: none;
+  
+}
+.container_element_panier button:hover {
+  background-color: #CD853F;
+}
+
+.button_panier{
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  color:white;
+  background-color: #CD853F;
+  border-style: none;
+  height:40px;
+  width:150px;
+}
+.container_panier p {
+  color:#CD853F;
+  text-align: center;
+
+
+}
 
 
 

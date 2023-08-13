@@ -11,6 +11,8 @@ import Supportclient from "./components/Supportclient"
 import CGVs from "./components/CGVs"
 import Panier from "./components/Panier"
 import Shop_context from "./components/Shop_context"
+import Chercher from "./components/Chercher"
+
 
 const App = () => {
  
@@ -30,6 +32,7 @@ const App = () => {
 <Route path="/connex" element={<Connex/>} />
 <Route path="/supportclient" element={<Supportclient/>} />
 <Route path="/Panier" element={<Panier/>} />
+<Route path="/Chercher" element={<Chercher/>} />
 <Route path="*" element ={<Notfound/>}/>
 
 </Routes>

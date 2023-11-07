@@ -5,8 +5,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 .container {
-  height:100%;
-  width:100%;
+  
   box-sizing: border-box;
   font-family: "Noto";
   font-size: 20px;
@@ -14,22 +13,30 @@ body {
   background-color: beige;
 
 }
+
+
+
 /* ------------------------NAVBAR-------------------------------*/
 .container-nav {
 position: fixed;
 top:0;
 width:100vw;
 display: grid;
-grid-template-columns: auto auto auto auto;
+grid-template-columns: 3rem 15rem 5fr 3fr 1fr 3rem ;
 align-items: center;
 justify-content: center;
+z-index:2
  }
 .container-nav .title {
-  margin-left:20px;
-  padding-right : 100px; 
+  
   font-size:40px ;
   text-decoration: none;
   color : #008000;
+}
+.search-bar{
+  display: flex;
+  align-items: center;
+justify-content: center;
 }
 .search-bar input {
   height: 30px;
@@ -41,7 +48,8 @@ justify-content: center;
 }
 .search-bar .search {
   color: #008000;
-  margin-right:20px;
+  
+  
   }
   .modele{
     margin-right: 30px;
@@ -54,6 +62,7 @@ justify-content: center;
   color : #008000;
   text-decoration: none;
   padding-right: 20px;
+  text-transform: capitalize;
    }
 .modele .link1:hover{
   color:	#CD853F;
@@ -69,6 +78,9 @@ color: #008000;
 .shop-user .fa {
   color: #008000;
 }
+.hamburger-menu {
+  display: none;
+}
 
 
 
@@ -78,7 +90,7 @@ color: #008000;
 .container-slider {
   height: 650px;
   margin-top:25px;
-}
+  }
 .container-slider h2 {
   color: #CD853F;
   font-size:30px ;
@@ -138,6 +150,7 @@ color: #008000;
   padding-left: 20px;
   justify-content: center;
   align-items: center;
+  
 }
 .container-dispo h2 {
 color :beige  ;
@@ -145,12 +158,13 @@ font-size: 25px;
 text-align:center ;
 }
 .dispo1 {
-  display: grid;
-  grid-template-columns:auto auto auto auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   column-gap: 20px;
   }
  .dispo1 img {
-  height:400px ;
+  height:400px;
   width:300px ;
  border-radius: 20px;
   transition: transform 0.5s;
@@ -575,9 +589,599 @@ text-align: center;
     color:white;
     border-style: none;
   }
+
+
+
+
+
+
+
+
+
+
+/****** Mobile device *****/
+  @media (min-width:320px) and (max-width:479px ) {
+.container {
+  font-size:13px ;
+}
+/********************** navbar***************************/
+.container-nav {
+      grid-template-columns:0rem 4fr 2fr 2fr 0rem 1fr;
+}
+.container-nav .title {
+      font-size:20px ;
+    }
+.modele{
+    display : none;
+    }
+.hamburger-menu {
+   display : inline !important;
+
+ }
+ .hamburger-menu-icon {
+  color:#008000
+ }
+  .mobile-modele {
+    display:block ;
+    position:absolute ;
+    top:45px ;
+    right:10px ;
+    background-color:beige;
+    border :2px solid #CD853F;
+    border-radius: 10px;
+    width: 70px ;
+    font-size: 13px;
+    z-index: 1;
+    }
+ .mobile-modele ul {
+  list-style: none;
+  padding-left : 15px;
   
+ }
+ .mobile-modele ul li {
+  margin-bottom: 4px;
+ }
+ .mobile-modele ul li .link1 {
+  text-decoration: none;
+  color:#CD853F;
+ }
+ .mobile-modele ul li .link1:hover {
+  color:#008000;
+ }
+ .dropdown-menu {
+  top:20px ;
+  right:-10px ;
+  width: 120px ;
+  font-size: 10px;
+  z-index: 1;
+  padding-right: 10px;
+ }
+ .search-bar input {
+    width: 140px;
+    margin-right: 5px;
+  }
+.shop-user{
+  padding-left: 15px ;
+ }
+
+
+/************************* Slider-nouveautés*************/
+.container-slider {
+  height: 270px;
+  margin-top:10px;
   
+}
+.container-slider h2 {
+ font-size:15px ;
+}
+ .swiper_container .swiper-slider {
+  margin-right : 30px 
+}
+.swiper_container img {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 15px;
+}
+
+.nouv-acheter h3{
+margin-right: 23px;
+font-size:10px;
+}
+
+.nouv-acheter button {
+  margin-top: 5px;
+  width: 70px;
+ height: 20px;
+  border-radius: 15px;
+  font-size: 10px;
+}
+
+.my-custom-pagination-div{
+  width: 6rem !important;
+  padding-left: 120px;}
+
+
+
+
+/* ------------------------dISPO-------------------------------*/
+
+
+.container-dispo h2 {
+font-size: 15px;
+}
+
+ .dispo1 img {
+  height:170px ;
+  width:140px ;
+ }
+.dispo1 h3 {
+  font-size: 12px;
+  }
+
+
+
+
+
+  /* ------------------------FOOTER-------------------------------*/
+.container-footer .footer-title {
+  padding-left: 20px;
+}
+.container-footer h1 {
+font-size: 20px ;
+}
+.container-footer h3 {
+font-size: 13px ;
+padding-left: 25px;
+}
+.support-button > button {
+  width: 200px;
+  padding: 20px;
+  display:block;
+  border:none;
+  border-bottom: 2px solid black;
+  background-color: beige;
+  font-size:13px;
+
+
+}
+.support-client ul {
+  list-style: none;
+  padding-left:25px ;
   
+}
+.support-client ul li{
+  padding-top:10px;
+
+  
+}
+.support-client ul li .link3 {
+  
+  text-decoration: none ;
+  color:	#e7b16b;
+ 
+
+}
+.suivez-nous {
+  padding-left: 20px;
+}
+.suivez-nous .insta {
+  padding-left: 25px;
+}
+
+
+
+/************************disponibilité-catégorie*****************/
+.dispo{
+  margin-top:20px ;
+  
+  display :flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  
+}
+.categorie {
+  
+  margin-right:30px;
+  margin-bottom: 15px ;
+  padding:20px ;
+  height:200px ;
+  width: 130px;
+ 
+  color:beige;
+  justify-content: center;
+  align-items: center;
+  font-size:15px ;
+
+background:
+   /* radial-gradient(at 50% 0, black, transparent 70%)*/
+   linear-gradient(400deg, #CD853F, beige 90% ) ;
+   transition:transform 0.5s;
+   
+}
+.categorie:hover {
+  cursor:pointer;
+  transform : scale(1.2) ;
+}
+.img-dispo {
+height: 100px;
+width: 130px;
+ }
+
+
+ .voir-plus {
+  background-color:#CD853F ;
+ 
+  color :beige;
+  border-style: none;
+  padding: 10px;
+  border-radius: 20px ;
+  font-size: 10px ;
+ }
+
+ .categorie h3{
+  font-size: 10px ;
+ }
+
+
+  }
+
+
+
+
+
+/****** Tablets or iPad *****/
+  @media  (min-width:480px) and (max-width:1023px ) {
+
+    /******************* Navbar ************************/
+    .container-nav {
+      grid-template-columns: 1rem 5rem 2fr 3rem 1rem 2rem 1rem;
+      font-size: 15px;
+    }
+    .container-nav .title {
+      font-size:20px ;
+    }
+   .modele{
+      
+      display : none;
+    }
+    .search-bar input {
+      width: 200px;
+    }
+    .hamburger-menu {
+   display : inline !important;
+
+ }
+ .hamburger-menu-icon {
+  color:#008000
+ }
+  .mobile-modele {
+    display:block ;
+    position:absolute ;
+    top:45px ;
+    right:20px ;
+    background-color:beige;
+    border :2px solid #CD853F;
+    border-radius: 10px;
+    width: 100px ;
+    font-size: 13px;
+    z-index: 1;
+    }
+ .mobile-modele ul {
+  list-style: none;
+  padding-left : 25px;
+  
+ }
+ .mobile-modele ul li {
+  margin-bottom: 4px;
+ }
+ .mobile-modele ul li .link1 {
+  text-decoration: none;
+  color:#CD853F;
+ }
+ .mobile-modele ul li .link1:hover {
+  color:#008000;
+ }
+ .dropdown-menu {
+  top:20px ;
+  right:-20px ;
+  
+  width: 120px ;
+  font-size: 10px;
+  z-index: 1;
+  padding-right: 10px;
+ }
+   
+
+
+ /************************* Slider-nouveautés*************/
+ .container-slider {
+  height: 300px;
+  margin-top:10px;
+  
+}
+.container-slider h2 {
+ 
+  font-size:20px ;
+  
+ }
+ .swiper_container .swiper-slider {
+  margin-right : 15px 
+
+ }
+.swiper_container img {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 15px;
+}
+.nouv-acheter {
+  display : flex ;
+}
+.nouv-acheter h3{
+  margin-right: 10px;
+  font-size:15px;
+}
+.nouv-acheter button {
+  margin-top: 7px;
+  width: 70px;
+  border-radius: 20px;
+}
+
+.my-custom-pagination-div{
+  width: 7rem !important;
+  padding-left: 170px;}
+
+
+
+/* ------------------------dISPO-------------------------------*/
+
+
+
+.container-dispo {
+  margin-top:10px;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+.container-dispo h2 {
+font-size: 20px;
+}
+
+ .dispo1 img {
+  height:200px ;
+  width:140px ;
+ }
+.dispo1 h3 {
+  font-size: 12px;
+  }
+
+/* ------------------------FOOTER-------------------------------*/
+.container-footer .footer-title {
+  padding-left: 20px;
+}
+.container-footer h1 {
+font-size: 30px ;
+}
+
+.container-footer h3 {
+font-size: 13px ;
+padding-left: 25px;
+}
+.support-button > button {
+  width: 200px;
+  padding: 20px;
+  display:block;
+  border:none;
+  border-bottom: 2px solid black;
+  background-color: beige;
+  font-size:13px;
+
+
+}
+.support-client ul {
+  list-style: none;
+  
+}
+.support-client ul li{
+  padding-top:15px;
+  
+}
+.support-client ul li .link3 {
+  font-size: 17px;
+  text-decoration: none ;
+  color:	#e7b16b;
+ 
+
+}
+.suivez-nous {
+  padding-left: 20px;
+}
+.suivez-nous .insta {
+  padding-left: 20px;
+}
+
+
+/************************disponibilité-catégorie*****************/
+.dispo{
+  margin-top:20px ;
+  
+  display :flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  
+}
+.categorie {
+  
+  margin-right:30px;
+  margin-bottom: 15px ;
+  padding:20px ;
+  height:250px ;
+  width: 170px;
+ 
+  color:beige;
+  justify-content: center;
+  align-items: center;
+  font-size:15px ;
+
+background:
+   /* radial-gradient(at 50% 0, black, transparent 70%)*/
+   linear-gradient(400deg, #CD853F, beige 90% ) ;
+   transition:transform 0.5s;
+   
+}
+.categorie:hover {
+  cursor:pointer;
+  transform : scale(1.2) ;
+}
+.img-dispo {
+height: 150px;
+width: 170px;
+ }
+
+
+ .voir-plus {
+  background-color:#CD853F ;
+ 
+  color :beige;
+  border-style: none;
+  padding: 10px;
+  border-radius: 20px ;
+  font-size: 13px ;
+ }
+
+ .categorie h3{
+  font-size: 13px ;
+ }
+
+
+
+  }
+  
+/****** Laptop or small-size screen *****/
+@media  (min-width:768px) and (max-width:1023px) {
+
+  .search-bar input {
+    width: 300px;
+  }
+
+
+
+  /************************* Slider-nouveautés*************/
+ .container-slider {
+  height: 400px;
+  }
+
+.swiper_container img {
+  width: 13rem;
+  height: 13rem;
+}
+
+.nouv-acheter h3{
+  margin-right: 50px;
+ 
+}
+
+.my-custom-pagination-div{
+ 
+  padding-left:500px;}
+
+
+
+
+
+  /* ------------------------dISPO-------------------------------*/
+
+
+
+ .dispo1 img {
+  height:250px ;
+  width:200px ;
+ }
+
+
+}
+
+
+/******  Desktop or large-size screen *****/
+@media  (min-width:1024px) and (max-width:1199px) {
+  .container-nav {
+    
+    grid-template-columns: 1rem 7rem 2fr 1fr 5rem 1rem;
+    font-size: 18px;
+  
+     }
+    .container-nav .title {
+      font-size: 30px;
+    }
+   
+    .search-bar input {
+     
+      width: 400px;
+      
+    }
+
+
+
+
+    /* ------------------------SLIDER-NOUVEAUTES-------------------------------*/
+.container-slider {
+  height: 500px;
+  margin-top:25px;
+  }
+.container-slider h2 {
+  
+  font-size:25px ;
+  
+
+ }
+.swiper_container img {
+  width: 20rem;
+  height: 20rem;
+  
+}
+
+.nouv-acheter h3{
+  margin-right: 40px;
+}
+
+.my-custom-pagination-div{
+ 
+  padding-left: 500px;}
+
+
+
+
+  /* ------------------------dISPO-------------------------------*/
+
+
+ .dispo1 img {
+  height:350px ;
+  width:200px ;
+
+
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+    
+}
+
 
  
 

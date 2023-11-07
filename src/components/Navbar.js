@@ -2,29 +2,32 @@ import React, { useState } from 'react'
 import {FaRegCheckSquare,FaShoppingCart,FaRegUser,FaUnlockAlt} from "react-icons/fa"
 import { AiOutlineUser } from "react-icons/ai"
 import { BsCart,BsSearch } from "react-icons/bs";
+import {GiHamburgerMenu} from "react-icons/gi";
 import {Link} from "react-router-dom"
 import Chercher from './Chercher'
-/*${open ? 'active' : 'inactive'}
- */ 
+
 const Navbar = () => {
 const [input ,setinput] = useState('')
-
+const [show ,setshow] = useState(false)
  return (
-  <div className='container-nav'>
-    
+  <nav className='container-nav'>
+    <div></div>
      <div>  <h1><Link to="/" className='title'>ANSO</Link></h1> </div>   
      <div className='search-bar'>
-      <input type="search" placeholder='Que cherchez-vous?' onChange={e => setinput(e.target.value)} /> 
+      <input type="search" className='input' placeholder='Que cherchez-vous?' onChange={e => setinput(e.target.value)} /> 
       <Link to="/Chercher" state={input}><BsSearch className='search'  /></Link>    
      </div>
     
-      <div className='modele'>
+      <div className={show ? " mobile-modele" : "modele"}>
+
             <ul>
-            <li><Link to="/data" state="1"   className='link1'>BOTTINES</Link></li>
-            <li><Link to="/data"  state="2" className='link1'>GODASSES</Link></li>   
-            <li><Link to="/data"   state="3" className='link1'>BOTTES</Link></li>
+            <li><Link to="/data" state="1"   className='link1'>bottines</Link></li>
+            <li><Link to="/data"  state="2" className='link1'>godasses</Link></li>   
+            <li><Link to="/data"   state="3" className='link1'>bottes</Link></li>
           </ul>
       </div>
+
+
       <div className='shop-user'> 
          <div >
         <Link to="/Panier">
@@ -57,9 +60,12 @@ const [input ,setinput] = useState('')
             </div>
             </div>
             </div>
-    
+            <div></div>
+            <div className='hamburger-menu' onClick={() => setshow(!show)}>
+            <GiHamburgerMenu className='hamburger-menu-icon'  />
+            </div>
       
-  </div>
+  </nav>
     )
 }
 

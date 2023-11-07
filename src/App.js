@@ -12,6 +12,7 @@ import CGVs from "./components/CGVs"
 import Panier from "./components/Panier"
 import Shop_context from "./components/Shop_context"
 import Chercher from "./components/Chercher"
+import CompteUser from "./components/CompteUser"
 
 
 const App = () => {
@@ -33,6 +34,7 @@ const App = () => {
 <Route path="/supportclient" element={<Supportclient/>} />
 <Route path="/Panier" element={<Panier/>} />
 <Route path="/Chercher" element={<Chercher/>} />
+<Route path="/CompteUser" element={<CompteUser/>} />
 <Route path="*" element ={<Notfound/>}/>
 
 </Routes>

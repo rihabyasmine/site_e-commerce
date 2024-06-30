@@ -23,7 +23,7 @@ const Shop_context = (props) => {
         let total3 =0
         for (const item in Panier) {
             if(Panier[item]>0){
-                let iteminfo = data.find((produit)=> produit.id=== Number(item))
+                let iteminfo = data.find((produit)=> produit.id === Number(item))
                 total1+= Panier[item]*iteminfo.prix
             }
         }
@@ -46,6 +46,7 @@ const Shop_context = (props) => {
        if (name==="bottine"){setpanier((prev) => ({...prev , [id]:prev[id] + 1 }))} 
        else if (name==="godasse"){setpanier1((prev) => ({...prev , [id]:prev[id] + 1 }))}
        else if (name==="botte"){setpanier2((prev) => ({...prev , [id]:prev[id] + 1 }))}
+       alert("ajouter au panier ")
         
     }
  

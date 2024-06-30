@@ -88,7 +88,7 @@ color: #008000;
 
 /* ------------------------SLIDER-NOUVEAUTES-------------------------------*/
 .container-slider {
-  height: 650px;
+  height: 500px;
   margin-top:25px;
   }
 .container-slider h2 {
@@ -97,31 +97,43 @@ color: #008000;
   text-align: center;
  }
 .swiper_container img {
-  width: 25rem;
-  height: 27rem;
+  width: 20rem;
+  height: 20rem;
   border-radius: 20px;
   object-fit: cover;
-  transition: transform 0.5s;
+  /*transition: transform 0.5s;*/
   
 }
 .swiper_container img:hover {
-  transform: scale(1.2);
+  /*transform: scale(1.2);*/
 }
+
+
 .nouv-acheter {
-  display : flex ;
+position:absolute;
+z-index:1;
+left:100px;
+ top: 0;
+ opacity:0;
+ transition: opacity .35s ease;
+}
+.swiper-slider:hover .nouv-acheter {
+  opacity:1;
 }
 .nouv-acheter h3{
-  margin-right: 30px;
+   
 }
 .nouv-acheter button {
+  
   font-family: "Noto";
-  margin-top: 22px;
+ /*margin-top: 10px;*/
   width: 100px;
   height: 30px;
   background-color: #CD853F;
   color :white;
   border-style:none ;
   border-radius: 20px;
+ 
 }
 .my-custom-pagination-div{
   width: 20rem !important;
@@ -133,7 +145,20 @@ color: #008000;
   background-color:#CD853F;
 }
 
-
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20rem;
+  height: 20rem;
+  border-radius:20px ;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.5s ease;
+}
+.swiper-slider:hover:hover .overlay {
+  display: block;
+  background: rgba(0, 0, 0, .3);
+}
 
 
 

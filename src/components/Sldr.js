@@ -16,21 +16,20 @@ import image6_slide from 'C:/Users/User/Documents/React_Project/site_e-commerce/
 import data from './Détailsbottines'
 import data1 from './Détailsgodasses'
 import data2 from './Détailsbottes'
-
 import {Shopcontext} from './Shop_context'
 import Format from './Formatcurrency'
 
 
 export default function Sldr (){
-  const {ajouter_au_panier} =useContext(Shopcontext)
+  const {Panier ,Panier1 ,Panier2 ,ajouter_au_panier} =useContext(Shopcontext)
   const bottine ="bottine"
-const godasse ="godasse"
-const botte = "botte"
+  const godasse ="godasse"
+  const botte = "botte"
   
     return (
         <div className="container-slider">
           <h2>Nouveautés</h2>
-            <Swiper
+<Swiper
       grabCursor={true}
       centeredSlides={true}
       spaceBetween={0}
@@ -48,8 +47,8 @@ const botte = "botte"
         {
           rotate: 0,
           stretch: 0,
-          depth: 100,
-          modifier: 0.5,
+          depth: 300,
+          modifier: 1,
           slideShadows : false}
         }
       className="swiper_container"
@@ -59,24 +58,35 @@ const botte = "botte"
         
       }}
     >
-  <SwiperSlide className='swiper-slider'>  <img src={data[0].img} alt=""/><div className='nouv-acheter'>
+  <SwiperSlide className='swiper-slider'>  
+  <img src={data[0].img} alt=""/>
+  <div class="overlay"></div>
+  <div className='nouv-acheter'>
   <h3>{Format(data[0].prix)}</h3> 
-  <button onClick={()=>ajouter_au_panier(data[0].id,bottine) }>Acheter</button>
+  <button onClick={()=>ajouter_au_panier(data[0].id,bottine) }>Acheter {Panier[data[0].id] >0 && Panier[data[0].id] } </button>
   </div>  
   </SwiperSlide>
-  <SwiperSlide className='swiper-slider'>  <img src={data[1].img}  alt=""/> <div className='nouv-acheter'><h3>{Format(data[1].prix)}</h3> 
-  <button onClick={()=>ajouter_au_panier(data[1].id,bottine) }>Acheter</button></div></SwiperSlide>
-  <SwiperSlide className='swiper-slider'>  <img src={data1[0].img}  alt=""/> <div className='nouv-acheter'><h3>{Format(data1[0].prix)}</h3> 
-  <button onClick={()=>ajouter_au_panier(data1[0].id,godasse) }>Acheter</button></div> </SwiperSlide>
- <SwiperSlide className='swiper-slider'>  <img src={data1[1].img}  alt=""/> <div className='nouv-acheter'><h3>{Format(data1[1].prix)}</h3> 
- <button onClick={()=>ajouter_au_panier(data1[1].id,godasse) }>Acheter</button></div> </SwiperSlide>
- <SwiperSlide className='swiper-slider'>  <img src={data2[0].img}  alt=""/> <div className='nouv-acheter'><h3>{Format(data2[0].prix)}</h3> 
- <button onClick={()=>ajouter_au_panier(data2[0].id,botte) }>Acheter</button></div> </SwiperSlide>
- <SwiperSlide className='swiper-slider'>  <img src={data2[1].img} alt=""/><div className='nouv-acheter'><h3>{Format(data2[1].prix)}</h3> 
- <button onClick={()=>ajouter_au_panier(data2[1].id,botte) }>Acheter</button></div> </SwiperSlide>
-
-            
-    </Swiper>
+  <SwiperSlide className='swiper-slider'>  <img src={data[1].img}  alt=""/> 
+  <div class="overlay"></div>
+  <div className='nouv-acheter'><h3>{Format(data[1].prix)}</h3> 
+  <button onClick={()=>ajouter_au_panier(data[1].id,bottine) }>Acheter {Panier[data[1].id] >0 && Panier[data[1].id] }</button></div></SwiperSlide>
+  <SwiperSlide className='swiper-slider'>  <img src={data1[0].img}  alt=""/> 
+  <div class="overlay"></div>
+  <div className='nouv-acheter'><h3>{Format(data1[0].prix)}</h3> 
+  <button onClick={()=>ajouter_au_panier(data1[0].id,godasse) }>Acheter {Panier1[data[0].id] >0 && Panier1[data[0].id] }</button></div> </SwiperSlide>
+ <SwiperSlide className='swiper-slider'>  <img src={data1[1].img}  alt=""/> 
+ <div class="overlay"></div>
+ <div className='nouv-acheter'><h3>{Format(data1[1].prix)}</h3> 
+ <button onClick={()=>ajouter_au_panier(data1[1].id,godasse) }>Acheter {Panier1[data[1].id] >0 && Panier1[data[1].id] }</button></div> </SwiperSlide>
+ <SwiperSlide className='swiper-slider'>  <img src={data2[0].img}  alt=""/>
+ <div class="overlay"></div>
+  <div className='nouv-acheter'><h3>{Format(data2[0].prix)}</h3> 
+ <button onClick={()=>ajouter_au_panier(data2[0].id,botte) }>Acheter {Panier2[data[0].id] >0 && Panier2[data[0].id] }</button></div> </SwiperSlide>
+ <SwiperSlide className='swiper-slider'>  <img src={data2[1].img} alt=""/>
+ <div class="overlay"></div>
+ <div className='nouv-acheter'><h3>{Format(data2[1].prix)}</h3> 
+ <button onClick={()=>ajouter_au_panier(data2[1].id,botte) }>Acheter {Panier2[data[1].id] >0 && Panier2[data[1].id] } </button></div> </SwiperSlide>
+</Swiper>
  
         
           <div className="my-custom-pagination-div"/>
